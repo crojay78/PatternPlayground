@@ -26,9 +26,11 @@ public class DynamicInvocationHandlerMain {
                 new Class<?>[]{SubjectInterface.class},
                 new TimerInvocationHandler(new SubjectInterfaceImpl()));
 
-
+        System.out.println("------------------------------");
         timerProxy.methodA("a");
+        System.out.println("------------------------------");
         timerProxy.methodB("test b");
+        System.out.println("------------------------------");
         timerProxy.methodC(1, "test c");
 
     }
