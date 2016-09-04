@@ -3,6 +3,12 @@ package de.oj.pattern.dynamicproxy;
 import java.lang.reflect.Proxy;
 
 /**
+ * Here is a nicer version how to create a chain of invocation handlers. In this solution the invocation handlers
+ * does not know anything from each other.
+ * Thanks to this post the solution has been created:
+ *
+ * http://stackoverflow.com/questions/39283264/how-to-create-chain-of-dynamic-proxies/39284420#39284420
+ *
  * Created by oj on 02.09.16.
  */
 public class DynamicProxyMain {
