@@ -9,10 +9,11 @@ import java.lang.reflect.Method;
 public class DynamicProxyHandler implements InvocationHandler {
 
     private Object proxied;
-    InvocationChain chain = new InvocationChainImpl();
+    InvocationChain chain;
 
     DynamicProxyHandler(Object proxied) {
         this.proxied = proxied;
+        this.chain = new InvocationChainImpl(proxied);
     }
 
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
