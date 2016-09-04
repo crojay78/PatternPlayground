@@ -4,7 +4,7 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
 /**
- * Created by oliverjazic on 02.09.16.
+ * Created by oj on 02.09.16.
  */
 public class TimerInvocationHandler extends LoggingInvocationHandler implements InvocationHandler{
     private Object impl;
