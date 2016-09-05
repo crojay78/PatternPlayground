@@ -13,13 +13,12 @@ public class InvocationChainImpl implements InvocationChain {
     List<Invocation> list = new ArrayList<>();
     Object result;
     Iterator<Invocation> tasks;
-    Object impl;
 
-    InvocationChainImpl(Object impl){
+    InvocationChainImpl(){
         list.add(new LoggingInvocation());
         list.add(new TimerInvocation());
         tasks = list.iterator();
-        this.impl = impl;
+
     }
 
     @Override
@@ -34,7 +33,7 @@ public class InvocationChainImpl implements InvocationChain {
         else{
             System.out.println("there is no other invocation handler to call, nead to call the real method");
             try {
-                this.result = method.invoke(impl, args);
+                this.result = method.invoke(caller, args);
                 //reset the iterator otherwise the next method which should be proxied will not be handled
                 //by the chained invocationhandlers
                 tasks = list.iterator();

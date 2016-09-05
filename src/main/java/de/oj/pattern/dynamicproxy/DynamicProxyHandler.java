@@ -13,7 +13,7 @@ public class DynamicProxyHandler implements InvocationHandler {
 
     DynamicProxyHandler(Object proxied) {
         this.proxied = proxied;
-        this.chain = new InvocationChainImpl(proxied);
+        this.chain = new InvocationChainImpl();
     }
 
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {

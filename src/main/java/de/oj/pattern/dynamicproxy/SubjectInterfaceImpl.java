@@ -12,15 +12,15 @@ public class SubjectInterfaceImpl implements SubjectInterface
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("SubjectImpl: method a has been called");
+        System.out.println("-->SubjectImpl: method a has been called<--");
     }
 
     public void methodB(String b) {
-        System.out.println("SubjectImpl: method b is called");
+        System.out.println("-->SubjectImpl: method b is called<--");
     }
 
     public String methodC(int i, String s) {
-        System.out.println("SubjectImpl: method c is called");
+        System.out.println("-->SubjectImpl: method c is called<--");
         try {
             Thread.sleep(1*1000);
         } catch (InterruptedException e) {
