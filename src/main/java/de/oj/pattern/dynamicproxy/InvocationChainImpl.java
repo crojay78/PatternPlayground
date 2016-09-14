@@ -1,5 +1,7 @@
 package de.oj.pattern.dynamicproxy;
 
+import org.apache.log4j.Logger;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -15,6 +17,7 @@ import java.util.List;
  * Created by oj on 02.09.16.
  */
 public class InvocationChainImpl implements InvocationChain {
+    final static Logger log = Logger.getLogger(InvocationChainImpl.class);
     List<Invocation> list = new ArrayList<>();
     Object result;
     Iterator<Invocation> tasks;
@@ -29,14 +32,14 @@ public class InvocationChainImpl implements InvocationChain {
     @Override
     public Object invoke(Object caller, Method method, Object[] args) {
 
-        System.out.println("ChainImpl: called method " + method.getName() + " started");
+        log.info("ChainImpl: called method " + method.getName() + " started");
         if(tasks.hasNext()){
 
             Object result = tasks.next().invoke(caller, method, args, this);
             this.result = (this.result == null ? result : this.result);
         }
         else{
-            System.out.println("there is no other invocation handler to call, nead to call the real method");
+            log.info("there is no other invocation handler to call, nead to call the real method");
             try {
                 this.result = method.invoke(caller, args);
                 //reset the iterator otherwise the next method which should be proxied will not be handled
@@ -48,7 +51,7 @@ public class InvocationChainImpl implements InvocationChain {
                 e.printStackTrace();
             }
         }
-        System.out.println("ChainImpl: called method " + method.getName() + " finished");
+        log.info("ChainImpl: called method " + method.getName() + " finished");
         return this.result;
     }
 }

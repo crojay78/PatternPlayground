@@ -1,5 +1,7 @@
 package de.oj.pattern.dynamicproxy;
 
+import org.apache.log4j.Logger;
+
 import java.lang.reflect.Proxy;
 
 /**
@@ -13,22 +15,24 @@ import java.lang.reflect.Proxy;
  */
 public class DynamicProxyMain {
 
+    final static Logger log = Logger.getLogger(DynamicProxyMain.class);
+
     public static void main(String[] args) {
 
-        System.out.println("Starting dynamic proxy sample");
+        log.info("Starting dynamic proxy sample, with a chain of invocation handlers");
 
         SubjectInterface proxy = (SubjectInterface) Proxy.newProxyInstance(SubjectInterface.class.getClassLoader(),
                 new Class[]{SubjectInterface.class},
                 new DynamicProxyHandler(new SubjectInterfaceImpl()));
 
 
-        System.out.println("------------------------------");
+        log.info("------------------------------");
         proxy.methodA("a");
-        System.out.println("------------------------------");
+        log.info("------------------------------");
         proxy.methodB("test b");
-        System.out.println("------------------------------");
+        log.info("------------------------------");
         proxy.methodC(1, "test c");
-        System.out.println("------------------------------");
+        log.info("------------------------------");
 
     }
 }
