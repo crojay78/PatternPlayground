@@ -7,6 +7,11 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
+ * This class defines the chain of invocation handlers which will be called. These invocation handlers
+ * are independent of each other, so that this solutions is a low coupling solution. If there is a new
+ * handler to call, just create it and add it in the constructor of this class
+ *
+ *
  * Created by oj on 02.09.16.
  */
 public class InvocationChainImpl implements InvocationChain {
