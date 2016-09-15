@@ -32,10 +32,12 @@ public class InvocationChainImpl implements InvocationChain {
     @Override
     public Object invoke(Object caller, Method method, Object[] args) {
 
-        log.info("ChainImpl: called method " + method.getName() + " started");
+        log.info("working on handlers for method " + method.getName());
         if(tasks.hasNext()){
+            Invocation handler = tasks.next();
 
-            Object result = tasks.next().invoke(caller, method, args, this);
+            log.info("calling next invocation handler in chain: " + handler.getClass().getName());
+            Object result = handler.invoke(caller, method, args, this);
             this.result = (this.result == null ? result : this.result);
         }
         else{
@@ -51,7 +53,7 @@ public class InvocationChainImpl implements InvocationChain {
                 e.printStackTrace();
             }
         }
-        log.info("ChainImpl: called method " + method.getName() + " finished");
+        log.info("invocation handler for  for method " + method.getName() + " is finished");
         return this.result;
     }
 }
