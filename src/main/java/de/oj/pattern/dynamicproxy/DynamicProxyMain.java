@@ -26,13 +26,13 @@ public class DynamicProxyMain {
                 new DynamicProxyHandler(new SubjectInterfaceImpl()));
 
 
-        log.info("------------------------------");
+        log.info("Calling method a from main");
         proxy.methodA("a");
-        log.info("------------------------------");
+        log.info("Calling method b from main");
         proxy.methodB("test b");
-        log.info("------------------------------");
+        log.info("Calling method c from main");
         proxy.methodC(1, "test c");
-        log.info("------------------------------");
+        log.info("main finished");
 
     }
 }
