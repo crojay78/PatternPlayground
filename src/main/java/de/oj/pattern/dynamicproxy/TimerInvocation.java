@@ -12,12 +12,12 @@ public class TimerInvocation implements Invocation {
 
     @Override
     public Object invoke(Object caller, Method method, Object[] args, InvocationChain chain) {
-        log.info("TimerInvocation started");
+        log.info("-->TimerInvocation started");
         long duration = -System.currentTimeMillis();
         chain.invoke(caller, method, args);
         duration += System.currentTimeMillis();
 
-        log.info("Timer: execution took " + duration + " ms");
+        log.info("-->Timer: execution took " + duration + " ms");
 
         return null;
     }

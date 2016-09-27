@@ -41,7 +41,7 @@ public class InvocationChainImpl implements InvocationChain {
             this.result = (this.result == null ? result : this.result);
         }
         else{
-            log.info("there is no other invocation handler to call, nead to call the real method");
+            log.info("there is no other invocation handler to call, need to call the real method");
             try {
                 this.result = method.invoke(caller, args);
                 //reset the iterator otherwise the next method which should be proxied will not be handled

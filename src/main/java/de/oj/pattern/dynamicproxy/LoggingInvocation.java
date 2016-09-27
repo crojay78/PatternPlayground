@@ -13,9 +13,9 @@ public class LoggingInvocation implements Invocation {
 
     @Override
     public Object invoke(Object caller, Method method, Object[] args, InvocationChain chain) {
-        log.info("LoggingInvocation: called method is " + method.getName());
+        log.info("-->LoggingInvocation: called method is " + method.getName());
         chain.invoke(caller, method, args);
-        log.info("LoggingInvocation: called ended");
+        log.info("-->LoggingInvocation: called ended");
 
         return null;
     }
