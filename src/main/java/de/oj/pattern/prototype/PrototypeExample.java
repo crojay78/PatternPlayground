@@ -11,17 +11,17 @@ import javax.swing.JPanel;
 
 
 /**
- * Beispielprogramm f�r das Prototyp-Muster:
+ * Beispielprogramm für das Prototyp-Muster:
  * Die Klasse ContentModel speichert verschiedene grafische Figuren.
  * Die Klasse ActionHandler operiert auf den Daten des Modells. Sie stellt den
  * Controller aus der MVC-Architektur dar.
  * Die Klasse AppFrame visualisiert das Ganze und entspricht dem View, in dem
- * �ber verschiedene Toolbar-Buttons neue Figuren erzeugt werden k�nnen.
+ * über verschiedene Toolbar-Buttons neue Figuren erzeugt werden können.
  * Die eigentliche Darstellung erfolgt in der Klasse ImageDrawingComponent.
  * Mithilfe der Buttons Copy und Paste kann das aktuell selektierte Element
- * kopiert und erneut eingef�gt werden. Dieser Vorgang entspricht dem Prototyp-Muster.
+ * kopiert und erneut eingefügt werden. Dieser Vorgang entspricht dem Prototyp-Muster.
  * <br>
- * Au�erdem bietet die Darstellung eine verkleinerte Vorschau- bzw. �bersichtsansicht.
+ * Außerdem bietet die Darstellung eine verkleinerte Vorschau- bzw. Übersichtsansicht.
  *
  * @author Michael Inden
  *
