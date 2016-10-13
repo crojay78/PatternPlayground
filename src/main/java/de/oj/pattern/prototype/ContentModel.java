@@ -10,34 +10,30 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * Die Klasse ContentModel speichert verschiedene grafische Figuren.
  * Sie unterst�tzt das Beobachter-Muster und erlaubt es, dass sich �nderungsinteressenten
  * anmelden, die fortan �ber �nderungen informiert werden.
-
- * @author Michael Inden
  *
- * Copyright 2011 by Michael Inden
+ * @author Michael Inden
+ *         <p/>
+ *         Copyright 2011 by Michael Inden
  */
-public final class ContentModel
-{
-    private final List<AbstractGraphicsElement> elements  = new ArrayList<>();
+public final class ContentModel {
+    private final List<AbstractGraphicsElement> elements = new ArrayList<>();
 
-    AbstractGraphicsElement                     selectedElement;
+    AbstractGraphicsElement selectedElement;
 
-    private final List<IModelListener>          listeners = new CopyOnWriteArrayList<>();
+    private final List<IModelListener> listeners = new CopyOnWriteArrayList<>();
 
-    protected final List<AbstractGraphicsElement> getElements()
-    {
+    protected final List<AbstractGraphicsElement> getElements() {
         return elements;
     }
 
-    public void addElement(final AbstractGraphicsElement newElement)
-    {
+    public void addElement(final AbstractGraphicsElement newElement) {
         elements.add(newElement);
         selectedElement = newElement;
 
         notifyModelListeners();
     }
 
-    public void removeAllElements()
-    {
+    public void removeAllElements() {
         elements.clear();
         selectedElement = null;
         notifyModelListeners();
@@ -46,28 +42,23 @@ public final class ContentModel
     /**
      * @param selectedElement the selectedElement to set
      */
-    protected final void setSelectedElement(final AbstractGraphicsElement selectedElement)
-    {
+    protected final void setSelectedElement(final AbstractGraphicsElement selectedElement) {
         this.selectedElement = selectedElement;
     }
 
-    public AbstractGraphicsElement getSelectedElement()
-    {
+    public AbstractGraphicsElement getSelectedElement() {
         return selectedElement;
     }
 
-    public void addModelListener(final IModelListener newListener)
-    {
+    public void addModelListener(final IModelListener newListener) {
         listeners.add(newListener);
     }
 
-    public void removeModelListener(final IModelListener listenerToRemove)
-    {
+    public void removeModelListener(final IModelListener listenerToRemove) {
         listeners.remove(listenerToRemove);
     }
 
-    public void notifyModelListeners()
-    {
+    public void notifyModelListeners() {
         for (final IModelListener listener : listeners)
             listener.imageElementsChanged(new ArrayList<AbstractGraphicsElement>(elements));
     }

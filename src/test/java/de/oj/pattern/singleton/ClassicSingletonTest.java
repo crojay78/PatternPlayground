@@ -6,7 +6,7 @@ import org.junit.Test;
 
 
 /**
- * Created by oliverjazic on 28.09.16.
+ * Created by oj on 28.09.16.
  */
 public class ClassicSingletonTest extends TestCase {
 
